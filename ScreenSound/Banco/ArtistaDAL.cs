@@ -8,7 +8,7 @@ namespace ScreenSound.Banco
         public IEnumerable<Artista> Listar()
         {
             var lista = new List<Artista>();
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = $"SELECT * FROM Artista";
@@ -29,7 +29,7 @@ namespace ScreenSound.Banco
 
         public void Adicionar(Artista artista)
         {
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = $"INSERT INTO Artista (Nome, FotoPerfil, Bio) VALUES (@nome, @perfilPadrao, @bio)";
@@ -45,7 +45,7 @@ namespace ScreenSound.Banco
 
         public void Atualizar(Artista artista)
         {
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = $"UPDATE Artista SET Nome = @nome, Bio = @bio WHERE Id = @id";
@@ -61,7 +61,7 @@ namespace ScreenSound.Banco
 
         public void Deletar(Artista artista)
         {
-            using var connection = new Connection().ObterConexao();
+            using var connection = new ScreenSoundContext().ObterConexao();
             connection.Open();
 
             string sql = $"DELETE FROM Artistas WHERE Id = @id";
