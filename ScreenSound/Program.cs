@@ -4,9 +4,13 @@ using ScreenSound.Modelos;
 
 try
 {
-    using var connection = new Connection().ObterConexao();
-    connection.Open();
-    Console.WriteLine(connection.State);
+    var connection = new Connection();
+    var listaArtista = connection.Listar();
+
+    foreach (var artista in listaArtista)
+    {
+        Console.WriteLine(artista);
+    }
 }
 catch (Exception ex)
 {
